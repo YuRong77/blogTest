@@ -5,11 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./css/all.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <link rel="stylesheet" href="./css/all.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div id="app">{{ message }}</div>
+    <div id="app">
+      <h3>清單列表</h3>
+      <input type="text" v-model="newItem" />
+      <button @click="addItem()">新增</button>
+      <div v-for="item in list">
+        <span>{{ item.content }}</span>
+        <button @click="removeItem(item.id)">刪除</button>
+      </div>
+    </div>
 
     <script src="./js/all.js"></script>
   </body>
